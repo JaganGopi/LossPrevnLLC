@@ -259,6 +259,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
+# Intro Video Section
+--------------------------------------------------------------*/
+#intro-video {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+}
+
+#intro-video .video-container {
+    position:relative;
+    padding-bottom:56.25%;
+    padding-top:0px;
+    height:70vmin;
+    overflow:hidden;
+    background-color: #fff;
+}
+
+#intro-video .video-container iframe, .video-container object, .video-container embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  #intro-video h3 {
+    font-size: 16px;
+  }
+  #intro-video {
+  height: 100vw;
+  }
+}
+
+/*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Nav Menu Essentials */
@@ -732,6 +769,178 @@ body.mobile-nav-active #mobile-nav-toggle {
   line-height: 24px;
   margin-bottom: 0;
 }
+
+/*--------------------------------------------------------------
+# Service Intro Section
+--------------------------------------------------------------*/
+#service-intro {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  font-size: 16px;
+}
+
+#service-intro .carousel-item {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#service-intro .carousel-item::before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+#service-intro .carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;  
+}
+
+#service-intro .carousel-content {
+  text-align: center;
+}
+
+#service-intro h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+#service-intro h3 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+#service-intro p {
+  width: auto;
+  margin: 0 auto 30px auto;
+  color: #fff;
+  font-size: 1rem;
+}
+
+#service-intro .floating-box {
+  float: right;
+  width: 40%;
+  height: 80vh;
+  padding: 1rem;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 1024px) {
+  #service-intro p {
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  #service-intro h2 {
+    font-size: 48px;
+  }
+  #service-intro h3 {
+    font-size: 32px;
+  }  
+  #service-intro p {
+    font-size: 16px;
+  }
+  #service-intro .floating-box {
+	width: auto;
+  }
+  
+}
+
+
+#service-intro .carousel-fade .carousel-inner .carousel-item {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+
+#service-intro .carousel-fade .carousel-inner .carousel-item,
+#service-intro .carousel-fade .carousel-inner .active.carousel-item-left,
+#service-intro .carousel-fade .carousel-inner .active.carousel-item-right {
+  opacity: 0;
+}
+
+#service-intro .carousel-fade .carousel-inner .active,
+#service-intro .carousel-fade .carousel-inner .carousel-item-next.carousel-item-left,
+#service-intro .carousel-fade .carousel-inner .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+#service-intro .carousel-fade .carousel-inner .carousel-item-next,
+#service-intro .carousel-fade .carousel-inner .carousel-item-prev,
+#service-intro .carousel-fade .carousel-inner .active.carousel-item-left,
+#service-intro .carousel-fade .carousel-inner .active.carousel-item-right {
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+#service-intro .carousel-control-prev, #service-intro .carousel-control-next {
+  width: 10%;
+}
+
+@media (min-width: 1024px) {
+  #service-intro .carousel-control-prev, #service-intro .carousel-control-next {
+    width: 5%;
+  }
+} 
+
+#service-intro .carousel-control-next-icon, #service-intro .carousel-control-prev-icon {
+  background: none;
+  font-size: 32px;
+  line-height: 1;
+}
+
+#service-intro .carousel-indicators li {
+  cursor: pointer;
+}
+
+#service-intro .owl-nav, #testimonials .owl-dots {
+  margin-top: 5px;
+  text-align: center;
+}
+
+#service-intro .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+#service-intro .owl-dot.active {
+  background-color: #18d26e;
+}
+
+
+
+
 
 /* Call To Action Section
 --------------------------------*/

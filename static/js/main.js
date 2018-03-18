@@ -109,12 +109,12 @@ jQuery(document).ready(function( $ ) {
 
   // Intro carousel
   var introCarousel = $(".carousel");
-  var introCarouselIndicators = $(".carousel-indicators");
+  /* var introCarouselIndicators = $(".carousel-indicators");
   introCarousel.find(".carousel-inner").children(".carousel-item").each(function(index) {
     (index === 0) ?
     introCarouselIndicators.append("<li data-target='#introCarousel' data-slide-to='" + index + "' class='active'></li>") :
     introCarouselIndicators.append("<li data-target='#introCarousel' data-slide-to='" + index + "'></li>");
-  });
+  }); */
 
   $(".carousel").swipe({
     swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
@@ -123,6 +123,10 @@ jQuery(document).ready(function( $ ) {
     },
     allowPageScroll:"vertical"
   });
+  
+  // Intro Video
+  // Load the IFrame Player API code asynchronously.
+  LoadVideo('playerA');
 
   // Skills section
   $('#skills').waypoint(function() {
@@ -166,5 +170,92 @@ jQuery(document).ready(function( $ ) {
     loop: true,
     items: 1
   });
+  
+  // Service-intro carousel (uses the Owl Carousel library)
+  $(".service-intro").owlCarousel({
+    autoplay: true,
+    dots: true,
+    loop: true,
+    items: 1
+  });  
 
 });
+
+
+
+
+//play when video is visible
+var LoadVideo = function(player_id){	
+                    
+	var Program = {
+
+	Init: function(){
+		this.NewPlayer();
+		this.EventHandler();
+	},
+
+	NewPlayer: function(){
+		var _this = this;
+		this.Player = new YT.Player(player_id, {});
+		_this.Player.$element = $('#' + player_id);
+	},
+
+	Play: function(){
+		if( this.Player.getPlayerState() === 1 ) return;
+		this.Player.playVideo();
+	},
+
+	Pause: function(){
+		if( this.Player.getPlayerState() === 2 ) return;
+		this.Player.pauseVideo();
+	},
+
+	ScrollControl: function(){
+		if( Utils.IsElementInViewport(this.Player.$element[0]) ) this.Play();
+		else this.Pause();
+	},
+
+	EventHandler: function(){
+		var _this = this;
+		$(window).on('scroll', function(){
+			_this.ScrollControl();
+		});
+	}
+
+	};
+
+	var Utils = {
+
+		/** @author http://stackoverflow.com/a/7557433/1684970 */
+		IsElementInViewport: function(el){
+			if (typeof jQuery === "function" && el instanceof jQuery) el = el[0];
+			var rect = el.getBoundingClientRect();
+			return (
+				rect.top >= 0 &&
+				rect.left >= 0 &&
+				rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+				rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+			);
+		}
+
+	};
+
+    return Program.Init();
+
+};
+
+// Scrolls to the selected Slide item on the page
+$(function() {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });

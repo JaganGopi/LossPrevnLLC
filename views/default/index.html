@@ -38,7 +38,7 @@
     <div class="container-fluid">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#intro" class="scrollto"><font color="#9B6BF2">Loss</font><font color="#EF53A5"> Prevention</font><font color="#C47016"> LLC</font></a></h1>
+        <h2><b><a href="#intro" class="scrollto"><font color="#9B6BF2">Loss</font><font color="#EF53A5"> Prevention</font><font color="#C47016"> LLC</font></a></b></h2>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
@@ -50,8 +50,8 @@
           <li><a href="#about">About Us</a></li>
 		  <!-- 
           <li><a href="#portfolio">Portfolio</a></li>
-		  -->
           <li><a href="#team">Team</a></li>
+		  -->
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -65,16 +65,25 @@
     <div class="intro-container">
       <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
-        <ol class="carousel-indicators"></ol>
+        <ol class="carousel-indicators">
+			<li data-target="#introCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#introCarousel" data-slide-to="1"></li>
+			<li data-target="#introCarousel" data-slide-to="2"></li>
+		</ol>
 
         <div class="carousel-inner" role="listbox">
 
           <div class="carousel-item active" style="background-image: url('{{=URL('static','img/intro-carousel/1.jpg')}}');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>We are professional</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+                <h2>We are Professionals</h2>
+                <p>If you are a small business owner frustrated with disparate systems for what you buy and what you sell,  we can help you.</p>
+                <a href="{{ if hasattr(session.auth, 'user'):
+                                    =URL(a=request.application, c='gather_data', f='index')
+                                else:
+                                    =URL('user')
+                                pass
+                         }}" class="btn-get-started scrollto">Get Started</a>
               </div>
             </div>
           </div>
@@ -82,9 +91,14 @@
           <div class="carousel-item" style="background-image: url('{{=URL('static','img/intro-carousel/2.jpg')}}');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>At vero eos et accusamus</h2>
-                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+                <h2>Mitigate Loss with informed decisions</h2>
+                <p>We specialize in reconciling the products purchased and items sold. This helps you in identifying wastage, theft and other forms of loss.</p>
+                <a href="{{ if hasattr(session.auth, 'user'):
+                                    =URL(a=request.application, c='gather_data', f='index')
+                                else:
+                                    =URL('user')
+                                pass
+                         }}" class="btn-get-started scrollto">Get Started</a>
               </div>
             </div>
           </div>
@@ -92,13 +106,18 @@
           <div class="carousel-item" style="background-image: url('{{=URL('static','img/intro-carousel/3.jpg')}}');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>Temporibus autem quibusdam</h2>
-                <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+                <h2>Turn On the Alerts!!</h2>
+                <p>Knowing these numbers at frequent intervals in a comprehensible graphical format really shows the opportunity to increase efficient in your business.</p>
+                <a href="{{ if hasattr(session.auth, 'user'):
+                                    =URL(a=request.application, c='gather_data', f='index')
+                                else:
+                                    =URL('user')
+                                pass
+                         }}" class="btn-get-started scrollto">Get Started</a>
               </div>
             </div>
           </div>
-
+		  <!--
           <div class="carousel-item" style="background-image: url('{{=URL('static','img/intro-carousel/4.jpg')}}');">
             <div class="carousel-container">
               <div class="carousel-content">
@@ -118,7 +137,7 @@
               </div>
             </div>
           </div>
-
+		  -->
         </div>
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
@@ -132,11 +151,26 @@
         </a>
 
       </div>
+	  
     </div>
   </section><!-- #intro -->
 
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro-video" class="wow fadeInUp">
+    <div class="container text-center">
+		<div class="text-center">
+			<h3><font color="#fff">A picture is worth a thousand words.. Hence a Intro Video for you..</h3>
+			
+			<div id="introVideo" class="video-container">
+				<iframe id="playerA" width="100%" height="100%" src="https://www.youtube.com/embed/bbFBb9KeFzU?enablejsapi=1&autoplay=1&loop=1&playlist=bbFBb9KeFzU&showinfo=0&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+  </section><!-- #intro-video -->
+  
   <main id="main">
-
 
     <!--==========================
       Services Section
@@ -153,7 +187,7 @@
 
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-            <h4 class="title"><a href="">Purchase and Sales Gap Analysis</a></h4>
+            <h4 class="title"><a href="#ServiceCarousel" data-target="#ServiceCarousel" data-slide-to="0">Purchase and Sales Gap Analysis</a></h4>
             <p class="description">One stop place to reconcile your Purchase Vs Sales and view the progress in dynamic reports</p>
           </div>
 		  <!--
@@ -170,12 +204,12 @@
 		  -->
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-            <h4 class="title"><a href="">Sales Anomaly Alerts</a></h4>
+            <h4 class="title"><a href="#ServiceCarousel" data-target="#ServiceCarousel" data-slide-to="1">Sales Anomaly Alerts</a></h4>
             <p class="description">Intelligence in the program observes the trend and alerts with any anomalies.</p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-            <h4 class="title"><a href="">Custom Key Performance Indexes Alerts</a></h4>
+            <h4 class="title"><a href="#ServiceCarousel" data-target="#ServiceCarousel" data-slide-to="2">Custom Key Performance Indexes Alerts</a></h4>
             <p class="description">Enables you to watch a specific area in your business with Automated Reports</p>
           </div>
 		  <!--
@@ -188,17 +222,87 @@
         </div>
 
       </div>
+
     </section><!-- #services -->
 
     <!--==========================
+      Service Intro Section
+    ============================-->
+    <section id="service-intro" class="wow fadeInUp">
+	  <div class="container-fluid pull-left">
+		<div id="ServiceCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+			<li data-target="#ServiceCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#ServiceCarousel" data-slide-to="1"></li>
+			<li data-target="#ServiceCarousel" data-slide-to="2"></li>
+		  </ol>
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">
+		  
+			<div class="carousel-item active" style="background-image: url('{{=URL('static','images/PurchaseVsSales.jpg')}}');">>
+				<div class="carousel-container">
+				  <div class="carousel-content">
+				    <div class="floating-box">
+						<h3>Purchase Vs Sales Gap Analysis</h3>
+						<p><font color="#FFFF00">Automated engine which would generate the Purchase Vs Sales Analysis as per the Data Provided. You provide the purchased product data over a specific interval of time, which could contain hundreds or thousands of different products purchased multiple times.  You also provide the sales information for the same period of time.  Based on the business and the period considered initial and ending inventory may or may not be needed.  You can also provide your credentials in the application for our automated engine to get the data for you. With the data provided a detailed reconciliation is done for the products you choose to compare the purchased quantity to sold quantity. 
+						</font></p>
+					</div>
+				  </div>
+				</div>
+			</div>
+
+			<div class="carousel-item" style="background-image: url('{{=URL('static','images/SalesAnomaly.jpg')}}');">
+				<div class="carousel-container">
+				  <div class="carousel-content">
+					<div class="floating-box">
+						<h3>Sales Anomaly Alerts</h3>
+						<p><font color="#FCC0D1">If you register for this service we will provide sales and purchase anomaly alerts.  As the name indicates the intelligence in the program observes the trend and alerts with any anomalies.</font></p>
+					</div>
+				  </div>
+				</div>
+			</div>
+
+			<div class="carousel-item" style="background-image: url('{{=URL('static','images/KPIAlerts.jpg')}}');">
+				<div class="carousel-container">
+				  <div class="carousel-content">
+					<div class="floating-box">
+						<h3>Custom Key Performance Indexes Alerts</h3>
+						<p><font color="#9FE6FF">If you register for this service,  The program will email you daily reports with data of interest that you choose.  This enables you to watch a specific area in your business and perfect it and move to the next area,  thus allowing you to focus on specific loss prevention at a time.</font></p>
+					</div>
+				  </div>
+				</div>
+			</div>
+		  </div>
+
+		  <!-- Left and right controls -->
+		  <a class="carousel-control-prev" href="#ServiceCarousel" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		  </a>
+		  
+		  <a class="carousel-control-next" href="#ServiceCarousel" role="button" data-slide="next">
+			<span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		  </a>		  
+		</div>
+	  </div>	
+    </section><!-- #services -->	
+	
+    <!--==========================
       Call To Action Section
     ============================-->
+	<!--
     <section id="call-to-action" class="wow fadeIn">
+
       <div class="container text-center">
         <h3>Call To Action</h3>
         <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <a class="cta-btn" href="#">Call To Action</a>
       </div>
+
+
     </section><!-- #call-to-action -->
 
     <!--==========================
@@ -209,7 +313,8 @@
 
         <header class="section-header">
           <h3>About Us</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>We are young group of people who are made up of restaurant folks and technology innovators. 
+		     We want to help solve Food Industries basic issue - "Cash Over and Short" and help easily spot Sales discrepancies.</p>
         </header>
 
         <div class="row about-cols">
@@ -222,7 +327,7 @@
               </div>
               <h2 class="title"><a href="#">Our Mission</a></h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                To help Restaurants focus on what they do best and rest assured on Loss prevention and Financial management
               </p>
             </div>
           </div>
@@ -235,7 +340,7 @@
               </div>
               <h2 class="title"><a href="#">Our Plan</a></h2>
               <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                Integrate Restaurant data, build easy to understand reports and help get deeper insight of their business
               </p>
             </div>
           </div>
@@ -248,7 +353,7 @@
               </div>
               <h2 class="title"><a href="#">Our Vision</a></h2>
               <p>
-                Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+                To invent, maintain and sustain a platform where Restaurant Financial management made easy
               </p>
             </div>
           </div>
@@ -524,6 +629,7 @@
         </header>
 
         <div class="owl-carousel clients-carousel">
+		  <!--
           <img src="{{=URL('static','img/clients/client-1.png')}}" alt="">
           <img src="{{=URL('static','img/clients/client-2.png')}}" alt="">
           <img src="{{=URL('static','img/clients/client-3.png')}}" alt="">
@@ -532,6 +638,10 @@
           <img src="{{=URL('static','img/clients/client-6.png')}}" alt="">
           <img src="{{=URL('static','img/clients/client-7.png')}}" alt="">
           <img src="{{=URL('static','img/clients/client-8.png')}}" alt="">
+		  -->
+          <img src="{{=URL('static','images/DunkinDonuts.jpg')}}" alt="">
+          <img src="{{=URL('static','images/GreeneTurtle.jpg')}}" alt="">
+		  
         </div>
 
       </div>
@@ -540,6 +650,7 @@
     <!--==========================
       Clients Section
     ============================-->
+	<!--
     <section id="testimonials" class="section-bg wow fadeInUp">
       <div class="container">
 
@@ -612,6 +723,7 @@
     <!--==========================
       Team Section
     ============================-->
+	<!--
     <section id="team">
       <div class="container">
         <div class="section-header wow fadeInUp">
@@ -789,9 +901,9 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#intro">Home</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#services">Services</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#about">About us</a></li>			  
             </ul>
           </div>
 
@@ -827,6 +939,10 @@
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  
+  <!-- Youtube Player -->
+  <script src="https://www.youtube.com/player_api"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
 
   <!-- JavaScript Libraries -->
   <script src="{{=URL('static','lib/jquery/jquery.min.js')}}"></script>
